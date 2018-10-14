@@ -1,0 +1,29 @@
+{
+  "name": "esgplay",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gerardox24/ESGPlay.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gerardox24/ESGPlay/issues"
+  },
+  "homepage": "https://github.com/gerardox24/ESGPlay#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "connect-flash": "^0.1.1",
+    "express": "^4.16.4",
+    "express-messages": "^1.0.1",
+    "express-session": "^1.15.6",
+    "express-validator": "^5.3.0",
+    "mysql": "^2.16.0",
+    "pug": "^2.0.3"
+  }
+}

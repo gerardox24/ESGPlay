@@ -1,0 +1,6 @@
+extends layout
+
+block content
+    h1 #{title}
+    each stat, i in statistics
+        li= stat.name

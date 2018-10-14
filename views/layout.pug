@@ -1,0 +1,31 @@
+doctype html
+html
+    head
+        title ESGPlay
+        link(rel='stylesheet',href='bower_components/bootstrap/dist/css/bootstrap.css')
+    body
+        nav.navbar.navbar-expand-md.navbar-dark.bg-dark
+            a.navbar-brand(href='/',style='width: 150px;')
+                img(src='https://esgplay.com/assets/images/football/logo.png',width='100%')
+            button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarsExample04', aria-controls='navbarsExample04', aria-expanded='false', aria-label='Toggle navigation')
+                span.navbar-toggler-icon
+            #navbarsExample04.collapse.navbar-collapse
+                ul.navbar-nav.mr-auto
+                    li.nav-item
+                        a.nav-link(href='/')
+                            | Home 
+                            span.sr-only (current)
+                    li.nav-item
+                        a.nav-link(href='/login') Login
+                form.form-inline.my-2.my-md-0
+                    input.form-control(type='text', placeholder='Search')
+
+        .container
+            != messages('message',locals)
+            block content
+            br
+            hr
+            footer
+                p Copyright &copy; 2018 - UPC
+        script(src='/bower_components/jquery/dist/jquery.js')
+        script(src='/bower_components/bootstrap/dist/js/bootstrap.js')

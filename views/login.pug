@@ -2,12 +2,60 @@ extends layout
 
 block content
     h1 #{title}
-    form(method='POST',action='/login/init')
-        #form-group
-            label Username:
-            input.form-control(name = 'username', type = 'text')
-        #form-group
-            label Password:
-            input.form-control(name = 'password', type = 'password')
-        br
-        input.btn.btn-primary(type='submit',value='Login')
+
+    .row.esg-forms
+        .col-md-6.shadow-sm.pr-3.esg-form
+            .esg-card.p-3
+                h3 Ingrese a su cuenta
+                form(method='POST',action='/login/init')
+                    #form-group
+                        label Username:
+                        input.form-control(name = 'username', type = 'text',placeholder = 'Ingrese su email o nombre de usuario')
+                    #form-group
+                        label Password:
+                        input.form-control(name = 'password', type = 'password',placeholder = 'Ingrese su password')
+                    br
+                    input.btn.btn-primary(type='submit',value='Login')
+        .col-md-6.shadow-sm.pl-3.esg-form
+            .esg-card.p-3
+                h3 Registro
+                form(method='POST',action='/login/newuser')
+                    .row
+                        .col-md-6
+                            #form-group
+                                label Nombre de usuario
+                                input.form-control(name = 'username', type = 'text', placeholder = 'Ingrese el nombre de usuario')
+                        .col-md-6
+                            #form-group
+                                label Apodo
+                                input.form-control(name = 'apodo', type = 'text', placeholder = 'Ingrese el apodo')
+                    .row
+                        .col-md-6
+                            #form-group
+                                label Nombre de pila
+                                input.form-control(name = 'pila', type = 'text', placeholder = 'Ingrese el nombre')
+                        .col-md-6
+                            #form-group
+                                label Apellido
+                                input.form-control(name = 'apellido',type = 'text', placeholder = 'Ingrese el apellido')
+                    .row
+                        .col-md-12
+                            #form-group
+                                label Tu email
+                                input.form-control(name = 'email', type = 'text', placeholder = 'Ingrese su email')
+                        .col-md-12
+                            #form-group
+                                label Password
+                                input.form-control(name = 'password', type = 'password', placeholder = 'Ingrese su password')
+                        .col-md-12
+                            #form-group
+                                label Repite la password
+                                input.form-control(name = 'repeatpass', type = 'password', placeholder = 'Repita su password')
+                        .col-md-12.mt-2.mb-2
+                            #form-group.form-check
+                                input#checkbox.form-check-input(type = 'checkbox')
+                                label.form-check-label(for='checkbox') Toda la información es verdadera y válida
+                        .col-md-12
+                            input.btn.btn-primary(type = 'submit', value = 'enviar')
+
+    

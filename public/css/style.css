@@ -1,0 +1,42 @@
+
+@media (min-width: 1100px){
+    .header-f-heightr {
+        height: 80px;
+    }
+}
+body{
+    background-image: url(https://esgplay.com//liginbg.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    padding-bottom: 40px;
+    position: relative;
+
+}
+
+.val_err{
+    color: #d8d5d5;
+    font-size: 11px;
+    float: right;
+    font-style: italic;
+    font-weight: 600;
+}
+.team-name{
+    color: #0fe3ab;
+}
+.margin-class{
+    margin-top: 59%;
+}
+.esg-forms{
+    padding-top: 40px;
+}
+.esg-card{
+    background-color: #191e1e!important;
+    height: 100%;
+}
+label{
+    color: #ffffff !important;
+}
+h3{
+    color: #ffffff !important;
+}

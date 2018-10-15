@@ -67,18 +67,9 @@ app.use(expressValidator({
 }));
 
 app.get('/',function(req, res){
-    console.log('here');
-    var statistics = [
-        {
-            id: 5,
-            name: 'Johnny',
-            age: 22
-        }
-    ];
     //req.flash('danger','This is a message');
     res.render('index',{
-        title: 'ESGPlay',
-        statistics: statistics
+        title: 'ESGPlay'
     });
 })
 

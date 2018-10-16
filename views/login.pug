@@ -7,7 +7,7 @@ block content
         .col-md-6.shadow-sm.pr-3.esg-form
             .esg-card.p-3
                 h3 Ingrese a su cuenta
-                form(method='POST',action='/login/init')
+                form(method='POST',action='/login/login')
                     #form-group
                         label Username:
                         input.form-control(name = 'username', type = 'text',placeholder = 'Ingrese su email o nombre de usuario')
@@ -19,41 +19,37 @@ block content
         .col-md-6.shadow-sm.pl-3.esg-form
             .esg-card.p-3
                 h3 Registro
-                form(method='POST',action='/login/newuser')
+                form(method='POST',action='/login')
                     .row
                         .col-md-6
                             #form-group
                                 label Nombre de usuario
-                                input.form-control(name = 'username', type = 'text', placeholder = 'Ingrese el nombre de usuario')
+                                input.form-control(name = 'username', type = 'text', placeholder = 'Ingrese su nombre de usuario')
                         .col-md-6
                             #form-group
-                                label Apodo
-                                input.form-control(name = 'apodo', type = 'text', placeholder = 'Ingrese el apodo')
-                    .row
-                        .col-md-6
-                            #form-group
-                                label Nombre de pila
-                                input.form-control(name = 'pila', type = 'text', placeholder = 'Ingrese el nombre')
-                        .col-md-6
-                            #form-group
-                                label Apellido
-                                input.form-control(name = 'apellido',type = 'text', placeholder = 'Ingrese el apellido')
-                    .row
-                        .col-md-12
-                            #form-group
-                                label Tu email
+                                label Email
                                 input.form-control(name = 'email', type = 'text', placeholder = 'Ingrese su email')
+                    .row
+                        .col-md-6
+                            #form-group
+                                label Telefono
+                                input.form-control(name = 'phone', type = 'text', placeholder = 'Ingrese su numero de telefono')
+                        .col-md-6
+                            #form-group
+                                label SteamID
+                                input.form-control(name = 'steam_id',type = 'text', placeholder = 'Ingrese su SteamID')
+                    .row
                         .col-md-12
                             #form-group
-                                label Password
-                                input.form-control(name = 'password', type = 'password', placeholder = 'Ingrese su password')
+                                label Contraseña
+                                input.form-control(name = 'password', type = 'password', placeholder = 'Ingrese su contraseña')
                         .col-md-12
                             #form-group
-                                label Repite la password
-                                input.form-control(name = 'repeatpass', type = 'password', placeholder = 'Repita su password')
+                                label Repite la contraseña
+                                input.form-control(name = 'repeatpass', type = 'password', placeholder = 'Repita su contraseña')
                         .col-md-12.mt-2.mb-2
                             #form-group.form-check
-                                input#checkbox.form-check-input(type = 'checkbox')
+                                input#checkbox.form-check-input(type = 'checkbox',name="confirm-info")
                                 label.form-check-label(for='checkbox') Toda la información es verdadera y válida
                         .col-md-12
                             input.btn.btn-primary(type = 'submit', value = 'enviar')

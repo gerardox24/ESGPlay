@@ -72,3 +72,27 @@ end //
 delimiter ;
 
 /*call sp_eliminar_torneo(3)*/
+
+/* Procedimiento para listar las estadísticas por juego de un usuario */
+
+delimiter //
+create procedure sp_listar_estadisticas_usuario
+(in id_usuario int)
+begin
+	select g.name as 'game_name', 
+			AVG(pd.gpm) as 'gpm_avg',
+			AVG(pd.xpm) as 'xpm_avg',
+			AVG(pd.kills) as 'kills_avg',
+			AVG(pd.deaths) as 'deaths_avg',
+			AVG(pd.assists) as 'assists_avg',
+			((pd.kills + pd.deaths) / pd.assists) as 'kda'
+	from playdetails pd join play p on pd.play_id = p.id
+		join game g on p.game_id = g.id
+	where user_id = id_usuario
+	group by p.game_id;
+end //
+delimiter ;
+
+/*drop procedure sp_listar_estadisticas_usuario
+
+call sp_listar_estadisticas_usuario(1)*/

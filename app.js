@@ -60,9 +60,11 @@ app.get('/',function(req, res){
 
 var login = require('./routes/login');
 var dashboard = require('./routes/dashboard');
+var tournament = require('./routes/tournament');
 
 app.use('/login',login);
 app.use('/dashboard',dashboard);
+app.use('/tournament',tournament);
 
 app.listen(3000,function(){
     console.log('ESGPlay running on port 3000....');

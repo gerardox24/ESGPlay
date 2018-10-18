@@ -2,3 +2,7 @@ extends layout
 
 block content
     h1 #{title}
+
+    ul
+      each val in tournaments
+        li= val.name + ' ' + val.description + ' ' + val.first_day + ' ' + val.last_day + ' ' + val.max_teams + ' ' + val.url_to_image

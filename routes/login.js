@@ -30,6 +30,8 @@ router.post('/login', function(req, res){
                 req.flash('danger',"Incorrect username and password");
                 res.redirect('/login');
             }else{
+                let user_id = result[0].id;
+                req.session.user_id = user_id;
                 res.redirect('/dashboard');
             }
         })

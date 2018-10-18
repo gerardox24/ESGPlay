@@ -1,5 +1,4 @@
 const express = require('express');
-const mysql = require('mysql');
 const path = require('path');
 const bodyParser = require('body-parser');
 const app = express();
@@ -14,28 +13,13 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 // db connection
-var conn = mysql.createConnection({
-    host     : 'localhost',
-    user     : 'root',
-    password : '',
-    database : 'esgplay'
-});
-
-global.db = conn;
+var db = require('./db');
 
 // public folder
 app.use(express.static(path.join(__dirname,'public')));
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine','pug');
-
-conn.connect( function(err) {
-    if (err){
-        console.log('error: ' + err);
-    }else{
-        console.log('connected as Id: '+conn.threadId);
-    }
-});
 
 app.use(session({
     secret: 'secret key',

@@ -48,7 +48,7 @@ CREATE TABLE Tournament (
     first_day date  NOT NULL,
     last_day date  NOT NULL,
     max_teams int  NOT NULL,
-    url_to_image int  NOT NULL,
+    url_to_image text  NOT NULL,
     CONSTRAINT Tournament_pk PRIMARY KEY  (id)
 );
 

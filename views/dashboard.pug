@@ -2,3 +2,7 @@ extends layout
 
 block content
     h1 #{title}
+
+    ul
+      each val in estadisticas
+        li= val.game_name + ': gpm:' + val.gpm_avg + ' xpm: ' + val.xpm_avg + ' kills: ' + val.kills_avg + ' deaths: ' + val.deaths_avg + ' assists: ' + val.assists_avg + ' kda: ' + val.kda

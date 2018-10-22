@@ -108,4 +108,14 @@ router.put('/:id', function(req, res) {
 	}	
 });
 
+router.delete('/:id', function(req, res) {
+	const id = req.params.id;
+	const sp = 'call sp_eliminar_torneo(' + id + ')';
+
+	db.query(sp, function(err, result) {
+		if (err) { console.log(err); return; }
+		res.redirect('/tournament');
+	});
+});
+
 module.exports = router;

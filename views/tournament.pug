@@ -7,4 +7,5 @@ block content
 
     ul
       each val in tournaments
-        li= val.name + ' ' + val.description + ' ' + val.first_day + ' ' + val.last_day + ' ' + val.max_teams + ' ' + val.url_to_image
+        li
+          a(href='/tournament/' + val.id) #{val.name + ' ' + val.description + ' ' + val.first_day + ' ' + val.last_day + ' ' + val.max_teams + ' ' + val.url_to_image}

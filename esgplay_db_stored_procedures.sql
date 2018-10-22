@@ -96,3 +96,17 @@ delimiter ;
 /*drop procedure sp_listar_estadisticas_usuario
 
 call sp_listar_estadisticas_usuario(1)*/
+
+/* Procedimiento para obtener la información de un torneo */
+
+delimiter //
+create procedure sp_listar_torneo
+(in id_torneo int)
+begin
+	select *
+	from tournament
+	where id = id_torneo;
+end //
+delimiter ;
+
+/* call sp_listar_torneo(1) */

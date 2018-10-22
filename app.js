@@ -5,6 +5,7 @@ const app = express();
 const expressValidator = require('express-validator');
 const flash = require('connect-flash');
 const session = require('express-session');
+var methodOverride = require('method-override');
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -32,6 +33,8 @@ app.use(function(req, res, next) {
     res.locals.messages = require('express-messages')(req,res);
     next();
 });
+
+app.use(methodOverride("_method"));
 
 app.use(expressValidator({
     errorFormatter: function(param, msg, value) {

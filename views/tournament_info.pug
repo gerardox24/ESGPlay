@@ -1,0 +1,20 @@
+extends layout_sub
+
+block content
+    h1 #{title}
+    
+    img(src=torneo.url_to_image)
+
+    ul
+      li
+        a(href='/tournament/edit/' + torneo.id) Editar torneo
+
+    p #{torneo.name}
+
+    p #{torneo.description}
+
+    p Fecha de inicio: #{torneo.first_day}
+
+    p Fecha de fin: #{torneo.last_day}
+
+    p Número de equipos: #{torneo.max_teams}

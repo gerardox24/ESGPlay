@@ -48,4 +48,20 @@ router.post('/', function(req, res) {
 	}
 });
 
+router.get('/:id', function(req, res) {
+	const id = req.params.id;
+	const sp = 'call sp_listar_torneo(' + id + ')';
+
+	db.query(sp, function(err, result) {
+		if(err) { console.log(err); return; }
+		const torneo = result[0][0];
+		console.log(torneo);
+
+		res.render('tournament_info',{
+            title: torneo.name,
+            torneo: torneo
+    	});
+	});
+});
+
 module.exports = router;

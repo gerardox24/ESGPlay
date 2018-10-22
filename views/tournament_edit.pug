@@ -1,0 +1,26 @@
+extends layout_sub_sub
+
+block content
+    h1 #{torneo.name}
+      
+    form(method='POST',action='/tournament/' + torneo.id + '?_method=PUT')
+      #form-group
+        label Nombre:
+        input.form-control(name = 'nombre', type = 'text', value = torneo.name)
+      #form-group
+        label Descripción:
+        input.form-control(name = 'descripcion', type = 'text', value = torneo.description)
+      #form-group
+        label Fecha de inicio:
+        input.form-control(name = 'fecha_inicio', type = 'date', value = torneo.first_day)
+      #form-group
+        label Fecha de fin:
+        input.form-control(name = 'fecha_fin', type = 'date', value = torneo.last_day)
+      #form-group
+        label Máximo equipos:
+        input.form-control(name = 'maximo_equipos', type = 'number', value = torneo.max_teams)
+      #form-group
+        label URL Imagen del torneo:
+        input.form-control(name = 'url_imagen', type = 'text', value = torneo.url_to_image)
+      br
+      input.btn.btn-primary(type='submit',value='Actualizar')                

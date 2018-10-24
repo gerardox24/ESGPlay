@@ -118,4 +118,17 @@ router.delete('/:id', function(req, res) {
 	});
 });
 
+router.post('/:idTorneo/inscription', function(req, res) {
+	const idTorneo = req.params.idTorneo;
+	let idUser = req.session.user_id;
+	console.log('Inscripción: ' + idUser + ', ' + idTorneo);
+
+	const sp = 'call sp_registrar_inscripcion_torneo(' + idTorneo + ',' + idUser + ')';
+
+	db.query(sp, function(err, result) {
+		if (err) { console.log(err); return; }		
+		res.redirect('/tournament/' + idTorneo);
+	});
+});
+
 module.exports = router;

@@ -110,3 +110,57 @@ end //
 delimiter ;
 
 /* call sp_listar_torneo(1) */
+
+/* Procedimiento almacenado para inscribir un usuario a un torneo */
+
+delimiter //
+create procedure sp_registrar_inscripcion_torneo
+(in id_torneo int,
+	id_usuario int)
+begin
+	declare play_id_out int;
+	insert into Play values (
+		null,
+		1,
+		null,
+		null
+	);
+    set play_id_out = last_insert_id();
+    
+    insert into TournamentPlay values (
+		null,
+        id_torneo,
+        play_id_out,
+        null,
+        null,
+        null
+        
+    );
+    
+    insert into PlayDetails values (
+		null,
+        id_usuario,
+        play_id_out,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+    );
+end //
+delimiter ;
+
+/* Procedimiento almacenado para obtener la lista de usuarios registrados en un torneo */
+
+delimiter //
+create procedure sp_listar_torneo_inscritos
+(in id_torneo int)
+begin
+	select pd.user_id, u.username
+	from TournamentPlay tp join PlayDetails pd on tp.play_id = pd.play_id
+		join User u on pd.user_id = u.id
+	where tp.tournament_id = id_torneo;
+end //
+delimiter ;

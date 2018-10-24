@@ -10,7 +10,10 @@ block content
         a(href='/tournament/edit/' + torneo.id) Editar torneo
       li
         form(method='POST',action='/tournament/' + torneo.id + '?_method=DELETE')
-          input.btn.btn-primary(type='submit',value='Eliminar') 
+          input.btn.btn-primary(type='submit',value='Eliminar')
+      li
+        form(method='POST',action='/tournament/' + torneo.id + '/inscription')
+          input.btn.btn-primary(type='submit',value='Inscribirse')          
 
     p #{torneo.name}
 

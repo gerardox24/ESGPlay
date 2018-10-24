@@ -13,8 +13,8 @@ CREATE TABLE Game (
 CREATE TABLE Play (
     id int  NOT NULL auto_increment,
     game_id int  NOT NULL,
-    flag_victory int  NOT NULL,
-    play_date datetime  NOT NULL,
+    flag_victory int NULL,
+    play_date datetime NULL,
     CONSTRAINT Play_pk PRIMARY KEY  (id)
 );
 
@@ -23,13 +23,13 @@ CREATE TABLE PlayDetails (
     id int  NOT NULL auto_increment,
     user_id int  NOT NULL,
     play_id int  NOT NULL,
-    flag_team int  NOT NULL,
-    gpm int  NOT NULL,
-    xpm int  NOT NULL,
-    kills int  NOT NULL,
-    deaths int  NOT NULL,
-    assists int  NOT NULL,
-    kda decimal(4,2)  NOT NULL,
+    flag_team int NULL,
+    gpm int NULL,
+    xpm int NULL,
+    kills int NULL,
+    deaths int NULL,
+    assists int NULL,
+    kda decimal(4,2) NULL,
     CONSTRAINT PlayDetails_pk PRIMARY KEY  (id)
 );
 
@@ -57,7 +57,7 @@ CREATE TABLE TournamentPlay (
     id int NOT NULL auto_increment,
     tournament_id int  NOT NULL,
     play_id int  NOT NULL,
-    scheduled date  NOT NULL,
+    scheduled date NULL,
     first_team_score int  NULL,
     second_team_score int  NULL,
     CONSTRAINT TournamentPlay_pk PRIMARY KEY  (id)

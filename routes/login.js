@@ -7,36 +7,59 @@ router.get('/',function(req, res){
     })
 });
 
-router.post('/login', function(req, res){
-    req.checkBody('username','Username is required').notEmpty();
-    req.checkBody('password','Password is required').notEmpty();
+// router.post('/login', function(req, res){
+//     req.checkBody('username','Username is required').notEmpty();
+//     req.checkBody('password','Password is required').notEmpty();
 
-    let errors = req.validationErrors();
+//     let errors = req.validationErrors();
 
+//     var username = req.body.username;
+//     var password = req.body.password;
+
+//     if(errors){
+//         //req.flash('danger',errors);
+//         res.render('login',{
+//             title: 'Login',
+//             errors: errors
+//         })
+//     }else{
+//         let query = 'SELECT * FROM user WHERE username = "'+ username + '" AND password = "'+ password + '"';
+//         db.query(query, function(err,result) {
+//             if(err){console.log(err); return;}
+//             if(result.length == 0){
+//                 req.flash('danger',"Incorrect username and password");
+//                 res.redirect('/login');
+//             }else{
+//                 let user_id = result[0].id;
+//                 req.session.user_id = user_id;
+//                 res.redirect('/dashboard');
+//             }
+//         })
+//     }
+// });
+
+router.post('/login', function(req,res){
+    console.log(req.body);
     var username = req.body.username;
     var password = req.body.password;
 
-    if(errors){
-        //req.flash('danger',errors);
-        res.render('login',{
-            title: 'Login',
-            errors: errors
-        })
-    }else{
-        let query = 'SELECT * FROM user WHERE username = "'+ username + '" AND password = "'+ password + '"';
-        db.query(query, function(err,result) {
-            if(err){console.log(err); return;}
-            if(result.length == 0){
-                req.flash('danger',"Incorrect username and password");
-                res.redirect('/login');
-            }else{
-                let user_id = result[0].id;
-                req.session.user_id = user_id;
-                res.redirect('/dashboard');
-            }
-        })
-    }
-});
+    let sp = 'call sp_getLoginUsuario(?,?)';
+    var params = [username, password];
+
+    var data = {};
+
+    db.query(sp, params ,function(err, result, fields){
+        if(err) {console.log(err); data.err = err; res.status(500).send(data); return;}
+        if(result[0].length > 0){
+            let user_id = result[0][0].id;
+            req.session.user_id = user_id;
+            res.status(200).send({dashboard: 'dashboard'});
+            //res.redirect('/dashboard');
+        }else{
+            res.status(400).send({message : 'Invalid username or password'});
+        }
+    })
+})
 
 router.post('/',function(req, res){
     req.checkBody('username','Username is required').notEmpty();

@@ -5,15 +5,24 @@
     }
 }
 body{
-    background-image: url(https://esgplay.com//liginbg.jpg);
+    background-image: url(../img/csgo-wallpaper.jpg);
     background-size: cover;
     background-attachment: fixed;
     background-repeat: no-repeat;
     padding-bottom: 40px;
-    position: relative;
-
+    color: #fff;
+    font-family: 'Montserrat',sans-serif;
 }
-
+input.error{
+    border: 2px solid #a72424;
+}
+p.message-error{
+    display: none;
+    color: #a72424;
+}
+p.message-error.active{
+    display: block;
+}
 .val_err{
     color: #d8d5d5;
     font-size: 11px;
@@ -39,4 +48,115 @@ label{
 }
 h3{
     color: #ffffff !important;
+}
+.csgo-banner{
+    width: 100%;
+    height: 100%;
+}
+.navbar{
+    background-color: #191e1e !important;
+}
+.footer{
+    background-color: #191e1e !important;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+}
+.decorated{
+    display: flex;
+}
+.decorated::before{
+    content: "";
+    display: block;
+    border-bottom-color: #293139;
+    -webkit-box-flex: 20px;
+    -ms-flex: 20px;
+    border-bottom: 4px solid;
+    flex: 20px;
+    width: 20px;
+    min-width: 20px;
+    -webkit-transform: translateY(-10px);
+    -ms-transform: translateY(-10px);
+    transform: translateY(-10px);
+}
+.decorated::after{
+    content: "";
+    border-bottom-color: #293139;
+    display: block;
+    -webkit-box-flex: 100;
+    -ms-flex: 100;
+    flex: 100;
+    border-bottom: 4px solid;
+    -webkit-transform: translateY(-10px);
+    -ms-transform: translateY(-10px);
+    transform: translateY(-10px);
+}
+.decorated span{
+    display: block;
+    -webkit-box-flex: 1;
+    -ms-flex: auto;
+    flex: auto;
+    padding-right: 20px;
+    padding-left: 20px;
+}
+.now-matchs{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    width: 100%;
+    padding: 20px;
+    color: #fff;
+    background-color: #293139;
+}
+.now-matchs .match-team-left,
+.now-matchs .match-team-right{
+    width: 35%;
+}
+.now-matchs .match-status{
+    width: 30%;
+    text-align: center;
+}
+.now-matchs .match-team-right{
+    width: 35%;
+}
+.now-matchs .match-team-left img,
+.now-matchs .match-team-right img{
+    width: 85px;
+    height: 85px;
+}
+.now-matchs .match-team-right{
+    text-align: right;
+}
+.now-matchs .match-team-left .match-team-name{
+    padding-left: 20px;
+}
+.now-matchs .match-team-right .match-team-name{
+    padding-right: 20px;
+}
+.now-matchs .match-status .match-status-vs {
+    display: block;
+    margin-bottom: 4px;
+    font-weight: 600;
+}
+.now-matchs .match-status .match-score {
+    margin-top: 10px;
+}
+.match-score {
+    display: inline-block;
+    padding: 9px 19px;
+    font-family: Montserrat,sans-serif;
+    font-size: .87rem;
+    font-weight: 600;
+    line-height: 1.2;
+    color: #fff;
+    text-align: center;
+    text-transform: uppercase;
+    white-space: nowrap;
+    vertical-align: middle;
+    background-color: #546374;
+    border-radius: 4px;
 }

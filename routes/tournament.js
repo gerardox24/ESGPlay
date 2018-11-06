@@ -11,6 +11,9 @@ router.get('/',function(req, res){
 	let sp = 'call sp_listar_torneos()';
 	db.query(sp, function(err, result){
 		let torneos = result[0];
+		console.log(torneos[0]);
+		var first_day = torneos[0].first_day;
+		var last_day = torneos[0].last_day;
 		res.render('tournament',{
         	title: 'Torneos',
         	tournaments: torneos

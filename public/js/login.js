@@ -1,5 +1,5 @@
-$("#login-btn").on('click', function(){
-
+$("#login-btn").on('click', function(e){
+    //e.preventDefault();
     var username = $("#username-login").val();
     var password = $("#password-login").val();
 
@@ -8,12 +8,16 @@ $("#login-btn").on('click', function(){
     if(username == ''){
         $("#username-login").addClass("error");
         $(".message-error").addClass("active");
+        return;
     }
     if(password == ''){
         $("#password-login").addClass("error");
         $(".message-error").addClass("active");
+        return;
     }
     
+    //$(this).click();
+
     $.ajax({
         url: './login/login',
         data : {
@@ -23,6 +27,9 @@ $("#login-btn").on('click', function(){
         type : 'POST',
         async : false
     }).done(function(data){
+        window.location.href = data.dashboard;
+    }).fail(function(data){
         console.log(data);
+        alert(data.responseJSON.message);
     })
 })

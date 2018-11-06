@@ -1,11 +1,56 @@
 extends layout
 
 block content
-    h1 #{title}
 
-    a(href='/tournament/new') Nuevo torneo
+  .col-12.mb-5.mt-5
+    a.btn.btn-primary(href='/tournament/new') Nuevo torneo
 
-    ul
-      each val in tournaments
-        li
-          a(href='/tournament/' + val.id) #{val.name + ' ' + val.description + ' ' + val.first_day + ' ' + val.last_day + ' ' + val.max_teams + ' ' + val.url_to_image}
+  .col-lg-8
+    h2.decorated.mt-4
+      span Lastest Matches
+    .now-matchs
+      .match-team-left
+        span.match-team-logo
+          img(src="img/team-navi.png")
+        span.match-team-name NaVi
+      .match-status
+        span.match-status-vs VS
+        span.match-score 16-10
+      .match-team-right
+        span.match-team-name Astralis
+        span.match-team-logo
+          img(src="img/team-astralis.jpg")
+    .now-matchs
+      .match-team-left
+        span.match-team-logo
+          img(src="img/team-liquid.png")
+        span.match-team-name Team Liquid
+      .match-status
+        span.match-status-vs VS
+        span.match-score 16-10
+      .match-team-right
+        span.match-team-name BIG
+        span.match-team-logo
+          img(src="img/team-big.png")
+    h2.decorated.mt-4
+      span Upcoming Tournaments
+    each val in tournaments
+      .now-matchs
+        .match-team-left
+          span.match-team-logo
+            img(src=val.url_to_image)
+          span.match-team-name #{val.name}
+          span.match-team-name #{val.description}
+        .match-status
+          span.match-score #{val.first_day}
+          span.match-score #{val.last_day}
+        .match-team-right
+          span.match-team-name #{val.max_teams}
+          span.match-team-logo
+            a(href="#") Entrar
+  .col-lg-4
+    
+  ul
+    each val in tournaments
+      li
+        a(href='/tournament/' + val.id) #{val.name + ' ' + val.description + ' ' + val.first_day + ' ' + val.last_day + ' ' + val.max_teams + ' ' + val.url_to_image}

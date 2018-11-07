@@ -3,24 +3,41 @@ extends layout_sub
 block content
     h1 #{title}
     
-    img(src=torneo.url_to_image)
+    .title-logo.col-12
+      img.logo-torneo(src=torneo.url_to_image)
 
-    ul
-      li
-        a(href='/tournament/edit/' + torneo.id) Editar torneo
-      li
-        form(method='POST',action='/tournament/' + torneo.id + '?_method=DELETE')
-          input.btn.btn-primary(type='submit',value='Eliminar')
-      li
-        form(method='POST',action='/tournament/' + torneo.id + '/inscription')
-          input.btn.btn-primary(type='submit',value='Inscribirse')          
+    if(session)
+      button#inscribir.mr-1.btn.btn-primary(type='button',value='Inscribirse') Inscribirse
+      a#editar.btn.btn-primary.mr-1(type='button',value='Editar',href='/tournament/edit/'+torneo.id) Editar torneo
+      button#eliminar.btn.btn-primary(type='button',value='Eliminar',data-tournament=torneo.id) Eliminar
 
-    p #{torneo.name}
+    //- ul
+    //-   li
+    //-     a(href='/tournament/edit/' + torneo.id) Editar torneo
+    //-   li
+    //-     form(method='POST',action='/tournament/' + torneo.id + '?_method=DELETE')
+    //-       input.btn.btn-primary(type='submit',value='Eliminar')
+    //-   li
+    //-     form(method='POST',action='/tournament/' + torneo.id + '/inscription')
+    //-       input.btn.btn-primary(type='submit',value='Inscribirse')          
 
-    p #{torneo.description}
+    .tournament-info
+      h4.decorated NOMBRE DEL
+        span.text-red TORNEO
+      p #{torneo.name}
 
-    p Fecha de inicio: #{torneo.first_day}
+      h4.decorated DESCRIPCION
+      p #{torneo.description}
 
-    p Fecha de fin: #{torneo.last_day}
+      h4.decorated DURACION
+      p #{torneo.first_day}
+      p #{torneo.last_day}
 
-    p Número de equipos: #{torneo.max_teams}
+      h4.decorated NUMERO DE EQUIPOS
+      p Número de equipos: #{torneo.max_teams}
+
+      h4.decorated PREMIOS
+      ul
+        li 1er Lugar: S/. 5000.00
+        li 2do Lugar: S/. 1500.00
+        li 3er Lugar: S/. 500.00

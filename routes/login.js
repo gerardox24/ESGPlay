@@ -53,8 +53,8 @@ router.post('/login', function(req,res){
         if(result[0].length > 0){
             let user_id = result[0][0].id;
             req.session.user_id = user_id;
-            res.status(200).send({dashboard: 'dashboard'});
-            //res.redirect('/dashboard');
+            //res.status(200).send({dashboard: 'dashboard', session: req.session.user_id});
+            res.redirect('/dashboard');
         }else{
             res.status(400).send({message : 'Invalid username or password'});
         }

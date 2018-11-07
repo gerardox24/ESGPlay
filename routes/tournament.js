@@ -2,21 +2,31 @@ const express = require('express');
 const router = express.Router();
 
 router.get('/new',function(req, res){
+	let idUser = req.session.user_id;
 	res.render('tournament_register',{
-        title: 'Nuevo torneo'
+		title: 'Nuevo torneo',
+		session: idUser
     });
 });
 
 router.get('/',function(req, res){
+	let idUser = req.session.user_id;
 	let sp = 'call sp_listar_torneos()';
 	db.query(sp, function(err, result){
 		let torneos = result[0];
-		console.log(torneos[0]);
-		var first_day = torneos[0].first_day;
-		var last_day = torneos[0].last_day;
+		torneos.forEach(function(torneo){
+			console.log(torneo);
+			var first_day = new Date(torneo.first_day);
+			var last_day = new Date(torneo.last_day);
+			var str1
+		});
+		
+		
+
 		res.render('tournament',{
         	title: 'Torneos',
-        	tournaments: torneos
+			tournaments: torneos,
+			session: idUser
     	});
 	});
 });
@@ -52,6 +62,7 @@ router.post('/', function(req, res) {
 });
 
 router.get('/:id', function(req, res) {
+	let idUser = req.session.user_id;
 	const id = req.params.id;
 	const sp = 'call sp_listar_torneo(' + id + ')';
 
@@ -62,7 +73,8 @@ router.get('/:id', function(req, res) {
 
 		res.render('tournament_info',{
             title: torneo.name,
-            torneo: torneo
+			torneo: torneo,
+			session: idUser
     	});
 	});
 });

@@ -3,9 +3,35 @@ extends layout
 block content
 
   .col-12.mb-5.mt-5
-    a.btn.btn-primary(href='/tournament/new') Nuevo torneo
+    if(session)
+      a.btn.btn-primary(href='/tournament/new') Nuevo torneo
 
+    
   .col-lg-8
+    nav
+      .nav.nav-tabs#nav-tab(role="tablist")
+        a.nav-item.nav-link.active#nav-all-tab(data-toggle="tab",href="#nav-all",role="tab",aria-controls="nav-all", aria-selected="true") All tournaments
+        a.nav-item.nav-link#nav-upc-tab(data-toggle="tab",href="#nav-upc",role="tab",aria-controls="nav-upc", aria-selected="true") Upcoming tournaments
+        a.nav-item.nav-link#nav-las-tab(data-toggle="tab",href="#nav-las",role="tab",aria-controls="nav-las", aria-selected="true") Last Results
+    .tab-content#nav-tabcontent
+      .tab-pane.fade.show.active#nav-all(role="tabpanel",aria-labelledby="nav-all-tab")
+        each val in tournaments
+          .now-matchs
+            .match-team-left
+              span.match-team-logo
+                img(src=val.url_to_image)
+              span.match-team-name #{val.name}
+              span.match-team-name #{val.description}
+            .match-status
+              span.match-score #{val.first_day}
+              span.match-score #{val.last_day}
+            .match-team-right
+              span.match-team-name #{val.max_teams}
+              span.match-team-logo
+                a(href="tournament/"+val.id) Entrar
+      .tab-pane.fade.show.active#nav-upc(role="tabpanel",aria-labelledby="nav-upc-tab")
+      .tab-pane.fade.show.active#nav-las(role="tabpanel",aria-labelledby="nav-las-tab")
+
     h2.decorated.mt-4
       span Lastest Matches
     .now-matchs

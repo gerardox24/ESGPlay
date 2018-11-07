@@ -16,9 +16,15 @@ router.get('/',function(req, res){
 		let torneos = result[0];
 		torneos.forEach(function(torneo){
 			console.log(torneo);
+
 			var first_day = new Date(torneo.first_day);
 			var last_day = new Date(torneo.last_day);
-			var str1
+			
+			var mostrarFecha1 = first_day.getFullYear() + "/" +(first_day.getMonth() + 1) + "/" + first_day.getDay();
+			var mostrarFecha2 = last_day.getFullYear() + "/" +(last_day.getMonth() + 1) + "/" + last_day.getDay();
+			
+			torneo.first_day = mostrarFecha1;
+			torneo.last_day = mostrarFecha2;
 		});
 		
 		

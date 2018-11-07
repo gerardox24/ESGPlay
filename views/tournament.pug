@@ -26,9 +26,9 @@ block content
               span.match-score #{val.first_day}
               span.match-score #{val.last_day}
             .match-team-right
-              span.match-team-name #{val.max_teams}
+              span.match-team-name Max. Jugadores: #{val.max_teams}
               span.match-team-logo
-                a(href="tournament/"+val.id) Entrar
+                a.btn.btn-success(href="tournament/"+val.id) Entrar
       .tab-pane.fade.show.active#nav-upc(role="tabpanel",aria-labelledby="nav-upc-tab")
       .tab-pane.fade.show.active#nav-las(role="tabpanel",aria-labelledby="nav-las-tab")
 
@@ -76,7 +76,7 @@ block content
             a(href="#") Entrar
   .col-lg-4
     
-  ul
-    each val in tournaments
-      li
-        a(href='/tournament/' + val.id) #{val.name + ' ' + val.description + ' ' + val.first_day + ' ' + val.last_day + ' ' + val.max_teams + ' ' + val.url_to_image}
+  //- ul
+  //-   each val in tournaments
+  //-     li
+  //-       a(href='/tournament/' + val.id) #{val.name + ' ' + val.description + ' ' + val.first_day + ' ' + val.last_day + ' ' + val.max_teams + ' ' + val.url_to_image}

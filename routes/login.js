@@ -3,7 +3,8 @@ const router = express.Router();
 
 router.get('/',function(req, res){
     res.render('login',{
-        title: 'Login'
+        title: 'Login',
+        erroracc: req.query.erroracc
     })
 });
 
@@ -56,7 +57,9 @@ router.post('/login', function(req,res){
             //res.status(200).send({dashboard: 'dashboard', session: req.session.user_id});
             res.redirect('/dashboard');
         }else{
-            res.status(400).send({message : 'Invalid username or password'});
+            //res.status(400).send({message : 'Invalid username or password'});
+            //req.flash('errors','Bienvenido, usuario registrado');
+             res.redirect('/login?erroracc=pass');
         }
     })
 })
@@ -101,7 +104,7 @@ router.post('/',function(req, res){
                         if(err){console.log(err); return;}
                         if(result){
                             req.flash('success','Bienvenido, usuario registrado');
-                            res.redirect('/login'); 
+                            res.redirect('/dashboard'); 
                         }
                     });
                 }

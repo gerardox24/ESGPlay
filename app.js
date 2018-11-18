@@ -56,7 +56,8 @@ app.use(expressValidator({
 app.get('/',function(req, res){
     //req.flash('danger','This is a message');
     res.render('index',{
-        title: 'ESGPlay'
+        title: 'ESGPlay',
+        session: (req.session.user_id !== undefined)
     });
 })
 

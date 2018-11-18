@@ -5,7 +5,7 @@ router.get('/new',function(req, res){
 	let idUser = req.session.user_id;
 	res.render('tournament_register',{
 		title: 'Nuevo torneo',
-		session: idUser
+        session: (req.session.user_id !== undefined)
     });
 });
 
@@ -32,7 +32,7 @@ router.get('/',function(req, res){
 		res.render('tournament',{
         	title: 'Torneos',
 			tournaments: torneos,
-			session: idUser
+        	session: (req.session.user_id !== undefined)
     	});
 	});
 });

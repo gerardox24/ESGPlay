@@ -6,21 +6,23 @@ block content
     form(method='POST',action='/tournament')
       #form-group
         label Nombre:
-        input.form-control(name = 'nombre', type = 'text', id= 'txtNombre')
+        input.form-control(name = 'nombre', type = 'text', id= 'txtNombre', required, maxlength='50', autofocus)
       #form-group
         label Descripción:
-        input.form-control(name = 'descripcion', type = 'text', id = 'txt_descripcion')
+        textarea.form-control(name = 'descripcion', type = 'text', id = 'txt_descripcion', required, maxlength='100')
       #form-group
         label Fecha de inicio:
-        input.form-control(name = 'fecha_inicio', type = 'date', id = 'txtFechaInicio')
+        input.form-control(name = 'fecha_inicio', type = 'date', id = 'txtFechaInicio', required, min="2018-11-16", max="2020-12-30")
+        p.message-error(id="error-fecha") La fecha debe ser menor a la fecha de fin del torneo
       #form-group
         label Fecha de fin:
-        input.form-control(name = 'fecha_fin', type = 'date', id = 'txtFechaFin')
+        input.form-control(name = 'fecha_fin', type = 'date', id = 'txtFechaFin', required, min="2018-11-17", max="2020-12-30")
       #form-group
         label Máximo equipos:
-        input.form-control(name = 'maximo_equipos', type = 'number', id= 'numMaximoEquipos')
+        input.form-control(name = 'maximo_equipos', type = 'number', id= 'numMaximoEquipos', required, min="2", max="200", step="1")
       #form-group
         label URL Imagen del torneo:
-        input.form-control(name = 'url_imagen', type = 'text', id = 'txtUrlImagen')
+        input.form-control(name = 'url_imagen', type = 'text', id = 'txtUrlImagen', required, pattern="([^\s]+(\.(?i)(jpg|png|gif|bmp))$)")
       br
-      input.btn.btn-primary(type='submit',value='Registrar')                
+      input.btn.btn-primary(type='submit',value='Registrar', id="nuevo-torneo")
+      script(src='/js/tournament_register.js')          

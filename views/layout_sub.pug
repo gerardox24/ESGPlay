@@ -16,8 +16,12 @@ html
                         a.nav-link(href='/')
                             | Home 
                             span.sr-only (current)
-                    li.nav-item
-                        a.nav-link(href='/login') Login
+                    if(session)
+                        li.nav-item
+                            a.nav-link(href='/dashboard') Dashboard
+                    else
+                        li.nav-item
+                            a.nav-link(href='/login') Login
                     li.nav-item
                         a.nav-link(href='/tournament') Torneos                        
                 form.form-inline.my-2.my-md-0

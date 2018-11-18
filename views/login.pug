@@ -9,11 +9,11 @@ block content
                 h3 Ingrese a su cuenta
                 form(method='POST',action='/login/login')
                     #form-group
-                        label Username:
-                        input.form-control#username-login(name = 'username', type = 'text',placeholder = 'Ingrese su email o nombre de usuario')
+                        label Usuario:
+                        input.form-control#username-login(name = 'username', type = 'text',placeholder = 'Ingrese su email o nombre de usuario', maxlength= '10', required)
                     #form-group
-                        label Password:
-                        input.form-control#password-login(name = 'password', type = 'password',placeholder = 'Ingrese su password')
+                        label Contraseña:
+                        input.form-control#password-login(name = 'password', type = 'password',placeholder = 'Ingrese su password', maxlength= '20', required, pattern="^.{6,}$")
                     br
                     input.btn.btn-primary#login-btn(type='submit',value='Login')
                     p.message-error Todos los campos son requeridos.
@@ -25,34 +25,35 @@ block content
                         .col-md-6
                             #form-group
                                 label Nombre de usuario
-                                input.form-control(name = 'username', type = 'text', placeholder = 'Ingrese su nombre de usuario')
+                                input.form-control(name = 'username', type = 'text', placeholder = 'Ingrese su nombre de usuario', maxlength= '10', required)
                         .col-md-6
                             #form-group
                                 label Email
-                                input.form-control(name = 'email', type = 'text', placeholder = 'Ingrese su email')
+                                input.form-control(name = 'email', type = 'email', placeholder = 'Ingrese su email', maxlength= '25', required)
                     .row
                         .col-md-6
                             #form-group
                                 label Telefono
-                                input.form-control(name = 'phone', type = 'text', placeholder = 'Ingrese su numero de telefono')
+                                input.form-control(name = 'phone', type = 'text', placeholder = 'Ingrese su numero de telefono', maxlength= '10', pattern='[0-9]{6,10}', required)
                         .col-md-6
                             #form-group
                                 label SteamID
-                                input.form-control(name = 'steam_id',type = 'text', placeholder = 'Ingrese su SteamID')
+                                input.form-control(name = 'steam_id',type = 'text', placeholder = 'Ingrese su SteamID', maxlength= '10', pattern='[0-9]{1,10}', required)
                     .row
                         .col-md-12
                             #form-group
                                 label Contraseña
-                                input.form-control(name = 'password', type = 'password', placeholder = 'Ingrese su contraseña')
+                                input.form-control(name = 'password', id='password', type = 'password', placeholder = 'Ingrese su contraseña', maxlength= '20', required, pattern="^.{6,}$", onchange="this.setCustomValidity(this.validity.patternMismatch ? 'Debe tener al menos 6 caracteres' : ''); if(this.checkValidity()) form.password_two.pattern = this.value;")
                         .col-md-12
                             #form-group
                                 label Repite la contraseña
-                                input.form-control(name = 'repeatpass', type = 'password', placeholder = 'Repita su contraseña')
-                        .col-md-12.mt-2.mb-2
+                                input.form-control(name = 'repeatpass', id='password_two', type = 'password', placeholder = 'Repita su contraseña', maxlength= '20', required, pattern="^.{6,}$" onchange="this.setCustomValidity(this.validity.patternMismatch ? 'Ingresa la misma contraseña que arriba' : '');")
+                        <!--.col-md-12.mt-2.mb-2
                             #form-group.form-check
                                 input#checkbox.form-check-input(type = 'checkbox',name="confirm-info")
-                                label.form-check-label(for='checkbox') Toda la información es verdadera y válida
+                                label.form-check-label(for='checkbox') Toda la información es verdadera y válida-->
                         .col-md-12
-                            input.btn.btn-primary(type = 'submit', value = 'enviar')
+                            #form-group(style='margin-top: 10px;')
+                                input.btn.btn-primary(type = 'submit', value = 'enviar')
 
     

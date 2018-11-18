@@ -73,14 +73,18 @@ router.get('/:id', function(req, res) {
 	const sp = 'call sp_listar_torneo(' + id + ')';
 
 	db.query(sp, function(err, result) {
-		if(err) { console.log(err); return; }
+		if(err) { 
+			console.log(err);
+			res.status(400).send({message : 'Id de torneo no valido'});
+			return;
+		}
 		const torneo = result[0][0];
 		console.log(torneo);
 
 		res.render('tournament_info',{
             title: torneo.name,
 			torneo: torneo,
-			session: idUser
+			session: (req.session.user_id !== undefined)
     	});
 	});
 });

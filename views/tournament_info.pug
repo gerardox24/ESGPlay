@@ -4,12 +4,10 @@ block content
     h1 #{title}
     
     .title-logo.col-12
-      img.logo-torneo(src=torneo.url_to_image)
+      img.logo-torneo(src=torneo.url_to_image, onerror="if (this.src != 'error.jpg') this.src = '../img/torneo-imagen.png';")
 
     if(session)
       button#inscribir.mr-1.btn.btn-primary(type='button',value='Inscribirse') Inscribirse
-      a#editar.btn.btn-primary.mr-1(type='button',value='Editar',href='/tournament/edit/'+torneo.id) Editar torneo
-      button#eliminar.btn.btn-primary(type='button',value='Eliminar',data-tournament=torneo.id) Eliminar
 
     //- ul
     //-   li

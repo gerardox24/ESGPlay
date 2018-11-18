@@ -112,10 +112,10 @@ h3{
 }
 .now-matchs .match-team-left,
 .now-matchs .match-team-right{
-    width: 35%;
+    width: 45%;
 }
 .now-matchs .match-status{
-    width: 30%;
+    width: 25%;
     text-align: center;
 }
 .now-matchs .match-team-right{

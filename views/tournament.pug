@@ -21,7 +21,6 @@ block content
               span.match-team-logo
                 img(src=val.url_to_image, onerror="if (this.src != 'error.jpg') this.src = 'img/torneo-imagen.png';")
               span.match-team-name #{val.name}
-              span.match-team-name #{val.description}
             .match-status
               span.match-score #{val.first_day}
               span.match-score #{val.last_day}
@@ -66,7 +65,6 @@ block content
           span.match-team-logo
             img(src=val.url_to_image, , onerror="if (this.src != 'error.jpg') this.src = 'img/torneo-imagen.png';")
           span.match-team-name #{val.name}
-          <!--span.match-team-name #{val.description}-->
         .match-status
           span.match-score #{val.first_day}
           span.match-score #{val.last_day}

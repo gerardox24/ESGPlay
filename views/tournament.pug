@@ -19,7 +19,7 @@ block content
           .now-matchs
             .match-team-left
               span.match-team-logo
-                img(src=val.url_to_image)
+                img(src=val.url_to_image, onerror="if (this.src != 'error.jpg') this.src = 'img/torneo-imagen.png';")
               span.match-team-name #{val.name}
               span.match-team-name #{val.description}
             .match-status
@@ -64,7 +64,7 @@ block content
       .now-matchs
         .match-team-left
           span.match-team-logo
-            img(src=val.url_to_image)
+            img(src=val.url_to_image, , onerror="if (this.src != 'error.jpg') this.src = 'img/torneo-imagen.png';")
           span.match-team-name #{val.name}
           span.match-team-name #{val.description}
         .match-status

@@ -102,6 +102,7 @@ router.post('/',function(req, res){
                     db.query(queryInsert, function(err, result){
                         if(err){console.log(err); return;}
                         if(result){
+                            req.session.user_id = result.insertId;
                             req.flash('success','Bienvenido, usuario registrado');
                             res.redirect('/dashboard'); 
                         }

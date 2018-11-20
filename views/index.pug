@@ -2,7 +2,46 @@ extends layout
 
 block content
 
-    .banner.mt-5
-        img.csgo-banner(src="img/csgo-banner.jpg")
+    .carousel.slide#demo(data-ride="carousel")
+        ol.carousel-indicators
+            li(data-target="#demo", data-slide-to="0").active
+            li(data-target="#demo", data-slide-to="1")
+            li(data-target="#demo", data-slide-to="2")
+        .carousel-inner(style="height: 350px")
+            .carousel-item.active(style="position: relative;")
+                img(src="img/csgo-landing.jpg",style="width: 100%;")
+                span.text Be a leyend
+            .carousel-item(style="position: relative;")
+                img(src="img/csgo-landing2.png",style="width: 100%;")
+                span.text Play now
+            .carousel-item(style="position: relative;")
+                img(src="img/csgo-landing3.jpg",style="width: 100%;")
+                span.text Only one team will be the best one
+            a.carousel-control-prev(href="#demo",data-slide="prev")
+                span.carousel-control-prev-icon
+            a.carousel-control-next(href="#demo",data-slide="next")
+                span.carousel-control-next-icon
+    .row
+        .col-4.mt-4
+            .feature.feature1.p-3
+                .feature-icon
+                    img(src="https://cdn-html.nkdev.info/goodgames/assets/images/icon-mouse.png") 
+                .feature-cont
+                    h4.feature-title PC
+                    h4.feature-title.text-red VIEW GAMES
+        .col-4.mt-4
+            .feature.feature2.p-3
+                .feature-icon
+                    img(src="https://cdn-html.nkdev.info/goodgames/assets/images/icon-gamepad.png") 
+                .feature-cont
+                    h4.feature-title PS4
+                    h4.feature-title.text-red VIEW GAMES
+        .col-4.mt-4
+            .feature.feature3.p-3
+                .feature-icon
+                    img(src="https://cdn-html.nkdev.info/goodgames/assets/images/icon-gamepad-2.png") 
+                .feature-cont
+                    h4.feature-title XBOX
+                    h4.feature-title.text-red VIEW GAMES
     
-    h1 Aqui va el landing page
+    

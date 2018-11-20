@@ -6,12 +6,17 @@ const expressValidator = require('express-validator');
 const flash = require('connect-flash');
 const session = require('express-session');
 var methodOverride = require('method-override');
+const busboy = require('connect-busboy');
+const fs = require('fs-extra');
+const formidable  = require('formidable');
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));
 
 // parse application/json
 app.use(bodyParser.json());
+
+app.use(busboy());
 
 // db connection
 var db = require('./db');
@@ -55,7 +60,7 @@ app.use(expressValidator({
 
 app.get('/',function(req, res){
     //req.flash('danger','This is a message');
-    res.render('index',{
+    res.status(200).render('index',{
         title: 'ESGPlay',
         session: (req.session.user_id !== undefined)
     });
@@ -73,3 +78,5 @@ app.use('/tournament',tournament);
 app.listen(3000,function(){
     console.log('ESGPlay running on port 3000....');
 })
+
+module.exports = app;

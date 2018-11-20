@@ -50,12 +50,12 @@ block content
                             #form-group
                                 label Repite la contraseña
                                 input.form-control(name = 'repeatpass', id='password_two', type = 'password', placeholder = 'Repita su contraseña', maxlength= '20', required, pattern="^.{6,}$" onchange="this.setCustomValidity(this.validity.patternMismatch ? 'Ingresa la misma contraseña que arriba' : '');")
-                        <!--.col-md-12.mt-2.mb-2
-                            #form-group.form-check
-                                input#checkbox.form-check-input(type = 'checkbox',name="confirm-info")
-                                label.form-check-label(for='checkbox') Toda la información es verdadera y válida-->
+                        //- .col-md-12.mt-2.mb-2
+                        //-     #form-group.form-check
+                        //-         input#checkbox.form-check-input(type = 'checkbox',name="confirm-info")
+                        //-         label.form-check-label(for='checkbox') Toda la información es verdadera y válida
                         .col-md-12
-                            #form-group(style='margin-top: 10px;')
+                            #form-group.mt-3
                                 input.btn.btn-primary(type = 'submit', value = 'enviar')
 
     

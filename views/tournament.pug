@@ -11,8 +11,8 @@ block content
     nav
       .nav.nav-tabs#nav-tab(role="tablist")
         a.nav-item.nav-link.active#nav-all-tab(data-toggle="tab",href="#nav-all",role="tab",aria-controls="nav-all", aria-selected="true") All tournaments
-        a.nav-item.nav-link#nav-upc-tab(data-toggle="tab",href="#nav-upc",role="tab",aria-controls="nav-upc", aria-selected="true") Upcoming tournaments
-        a.nav-item.nav-link#nav-las-tab(data-toggle="tab",href="#nav-las",role="tab",aria-controls="nav-las", aria-selected="true") Last Results
+        //- a.nav-item.nav-link#nav-upc-tab(data-toggle="tab",href="#nav-upc",role="tab",aria-controls="nav-upc", aria-selected="true") Upcoming tournaments
+        //- a.nav-item.nav-link#nav-las-tab(data-toggle="tab",href="#nav-las",role="tab",aria-controls="nav-las", aria-selected="true") Last Results
     .tab-content#nav-tabcontent
       .tab-pane.fade.show.active#nav-all(role="tabpanel",aria-labelledby="nav-all-tab")
         each val in tournaments
@@ -57,21 +57,21 @@ block content
         span.match-team-name BIG
         span.match-team-logo
           img(src="img/team-big.png")
-    h2.decorated.mt-4
-      span Upcoming Tournaments
-    each val in tournaments
-      .now-matchs
-        .match-team-left
-          span.match-team-logo
-            img(src=val.url_to_image, , onerror="if (this.src != 'error.jpg') this.src = 'img/torneo-imagen.png';")
-          span.match-team-name #{val.name}
-        .match-status
-          span.match-score #{val.first_day}
-          span.match-score #{val.last_day}
-        .match-team-right
-          span.match-team-name #{val.max_teams}
-          span.match-team-logo
-            a(href="#") Entrar
+    //- h2.decorated.mt-4
+    //-   span Upcoming Tournaments
+    //- each val in tournaments
+    //-   .now-matchs
+    //-     .match-team-left
+    //-       span.match-team-logo
+    //-         img(src=val.url_to_image, , onerror="if (this.src != 'error.jpg') this.src = 'img/torneo-imagen.png';")
+    //-       span.match-team-name #{val.name}
+    //-     .match-status
+    //-       span.match-score #{val.first_day}
+    //-       span.match-score #{val.last_day}
+    //-     .match-team-right
+    //-       span.match-team-name #{val.max_teams}
+    //-       span.match-team-logo
+    //-         a(href="#") Entrar
   .col-lg-4
     
   //- ul

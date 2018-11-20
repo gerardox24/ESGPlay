@@ -3,7 +3,7 @@ extends layout_sub
 block content
     h1 #{title}
       
-    form(method='POST',action='/tournament')
+    form(method='POST',action='/tournament',enctype="multipart/form-data")
       #form-group
         label Nombre:
         input.form-control(name = 'nombre', type = 'text', id= 'txtNombre', required, maxlength='50', autofocus)
@@ -21,8 +21,11 @@ block content
         label Máximo equipos:
         input.form-control(name = 'maximo_equipos', type = 'number', id= 'numMaximoEquipos', required, min="2", max="200", step="1")
       #form-group
-        label URL Imagen del torneo:
-        input.form-control(name = 'url_imagen', type = 'text', id = 'txtUrlImagen', required, pattern="([^\s]+(\.(?i)(jpg|png|gif|bmp))$)")
+        label Imagen del torneo:
+        input.form-control(name = 'fileUploaded',type = 'file', id = 'txtUrlImagen',required,  pattern="([^\s]+(\.(?i)(jpg|png|gif|bmp))$)")
+      //- #form-group
+      //-   label URL Imagen del torneo:
+      //-   input.form-control(name = 'url_imagen', type = 'text', id = 'txtUrlImagen', required, pattern="([^\s]+(\.(?i)(jpg|png|gif|bmp))$)")
       br
       input.btn.btn-primary(type='submit',value='Registrar', id="nuevo-torneo")
       script(src='/js/tournament_register.js')          

@@ -164,3 +164,14 @@ begin
 	where tp.tournament_id = id_torneo;
 end //
 delimiter ;
+
+/* Verifica si un usuario y una contraseña coinciden */
+
+delimiter //
+create procedure sp_getLoginUsuario
+(in username varchar(255),
+	pass varchar(255))
+begin
+	SELECT * FROM user WHERE username = username AND password = pass;
+end //
+delimiter ;
